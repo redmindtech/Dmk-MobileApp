@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class ApiServiceService {
   redirectUrl!: string;
-              // baseUrl:string = "https://redmindtechnologies.com/dmk_dev/";
-             baseUrl:string="http://localhost/dmk_php";
+              baseUrl:string = "https://redmindtechnologies.com/dmk_dev/";
+             //baseUrl:string="http://localhost/dmk_php";
 @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
   valueChanges: any;
   district: any;
@@ -196,10 +196,14 @@ public userlogin(username : any, password :any) {
   this.setToken(Users[0].name);
   this.getLoggedInName.emit(true);
   //only authorized user to login
+  // if(Users!=''){
+  //   //console.log(window.localStorage.getItem('UserToken'));
+  //   sessionStorage.setItem('validUserToken', 'true');
+  // }
   if(Users!=''){
-    //console.log(window.localStorage.getItem('UserToken'));
-    sessionStorage.setItem('validUserToken', 'true');
-  }
+    //window.localStorage.setItem('validUserToken', 'true');
+
+    }
   return Users;
   //console.log(Users);
   }));
